@@ -3,11 +3,11 @@ using namespace std;
 
 int main()
 {
-	int a[10000];
+	int a[100];
 	int n,i,max=0;
-	cout<<"enter the size of array";
+	cout<<"enter the size of N";
 	cin>>n;
-	cout<<"enter the values of the array";
+	cout<<"enter the values of the N";
 	for(i=0;i<n;i++)
 	{
 		cin>>a[i];
@@ -24,6 +24,6 @@ for(i=0;i<n;i++)
 
 	
 }
-	cout<<"the maximum is\n";
+	cout<<"the Maximum is\n";
 	cout<<max<<"\n";
 }
