@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-    freopen("input.txt","r",stdin);
+    freopen("test.txt","r",stdin);
     int n;
 	cin>>n;
 	int a[n];
