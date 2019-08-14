@@ -1,25 +1,40 @@
 #include<iostream>
-#include<cstdio>
+#include<cmath>
 using namespace std;
+
+void bin(int a)
+{
+
+    int mid,k;
+    int s=1,e;
+    e=a;
+    while(s<=e)
+    {
+
+        mid=(s+e)/2;
+        if((mid*mid==a)||(mid*mid<a)&&((mid+1)*(mid+1)>a))
+            {
+                k=mid;
+                cout<<k;
+                return;
+            }
+        else if(mid*mid<a)
+            {s=mid+1;
+
+            }
+        else{
+            e=mid-1;
+
+            }
+    }
+    cout<<mid;
+}
+
 int main()
 {
-	freopen("input.txt","r",stdin);
-	int testcase,N,K,X;
-	cin>>testcase;
-	while(testcase!=0)
-	{
-		int c=0;
-		cin>>N>>K;
-	for(int i=0;i<N;i++)
-	{
-		cin>>X;
-		if(X==K)
-		c=1;
-	}
-	if(c==1)
-		cout<<"1\n";
-	else
-		cout<<"-1\n";
-	testcase--;}
-	return 0;
+	int x;
+	cout<<"enter the number";
+	cin>>x;
+	cout<<"the square root is";
+	bin(x);
 }
