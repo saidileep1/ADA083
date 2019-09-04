@@ -1,0 +1,41 @@
+  
+#include<iostream>
+using namespace std;
+#define C 5
+#define R 3
+int a[R][C]={0};
+int visited[R][C]={0};
+bool issafe(int r,int c)
+{
+	if((c>=0)&&(c<C)&&(r>=0)&&(r<R)&&a[r][c]&&!visited[r][c])
+		return true;
+	else
+		return false;
+}
+void dfs(int r,int c)
+{
+	static int rownbr[]={-1,-1,-1,0,0,1,1,1};
+	static int colnbr[]={-1,0,1,-1,1,-1,0,1};
+	visited[r][c]=1;
+	for(int k=0;k<8;k++) 
+		if(issafe(r+rownbr[k],c+colnbr[k]))
+			dfs(r+rownbr[k],c+colnbr[k]);
+}
+int main()
+{
+	int count=0;
+	cout<<"Enter the matrix : \n";
+	for(int i=0;i<R;i++)
+		for(int j=0;j<C;j++)
+			cin>>a[i][j];
+	
+	for(int i=0;i<R;i++)
+		for(int j=0;j<C;j++)
+			if (a[i][j]==1 && visited[i][j]==0)
+			{
+				dfs(i,j);
+				++count;
+			}
+	cout<<"NUMBER OF ISLANDS : "<<count<<endl;
+	return 0;
+}

@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+const int n=5;
+	int vis[n]={0};
+int adjacent[n][n];
+void dfs(int v)
+{
+	cout<<v;
+	vis[v]=1;
+	for(int i=0;i<n;i++)
+	{
+		if(adjacent[v][i]==1&&vis[i]==false)
+			dfs(i);
+	}
+}
+
+int main()
+{
+
+	cout<<" adjacency matrix"<<endl;
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+			cin>>adjacent[i][j];
+	}
+	for(int i=0;i<n;i++)
+		vis[i]=0;
+	for(int i=0;i<n;i++)
+		{
+			if(vis[i]==0)
+			dfs(i);
+			cout<<"\n";
+		}
+	
+}
