@@ -1,0 +1,32 @@
+#include<iostream.h>
+using namespace std;  
+int min(int coins[], int n, int V) 
+{ 
+	int table[V+1]; 
+	table[0] = 0; 	
+	for (int i=1; i<=V; i++) 
+		table[i] = INT_MAX; 
+	for (int i=1; i<=V; i++) 
+		for (int j=0; j<n; j++) 
+			if (coins[j]<=i) 
+			{ 
+				int sub = table[i-coins[j]]; 
+				if (sub!=INT_MAX && sub+1<table[i]) 
+					table[i] = sub+ 1; 
+			} 
+	return table[V]; 
+} 
+int main() 
+{ 
+	int n,V;
+	cout<<"Enter the no of coins : ";
+	cin>>n;
+	int coins[n];
+	cout<<"Enter the denominations : \n";
+	for(int i=0;i<n;i++)
+		cin>>coins[i];
+	cout<<"Enter the value : ";
+	cin>>V;
+	cout<<"Minimum coins required is "<<min(coins, n, V)<<"\n"; 
+	return 0; 
+} 
